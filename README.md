@@ -1,4 +1,4 @@
 # resume-tex
-My resume
-Template used - https://www.latextemplates.com/template/deedy-resume-cv
+My resume <br>
+Template used - https://www.latextemplates.com/template/deedy-resume-cv <br>
 Compile with XeLaTex
