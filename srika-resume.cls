@@ -8,8 +8,13 @@
 \ProcessOptions\relax
 \LoadClass{article}
 
-\usepackage[hmargin=0.75cm, vmargin=0.5cm]{geometry} % Specifies horizontal and vertical page margins
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[hmargin=0.673cm, vmargin=0.75cm]{geometry} % Specifies horizontal and vertical page margins
 \usepackage{hyperref} % Required for links
+\hypersetup{
+  colorlinks=false,% hyperlinks will be black
+  pdfborderstyle={/S/U/W 1}
+  }
 
 %----------------------------------------------------------------------------------------
 %	COLORS
@@ -18,8 +23,8 @@
 \usepackage[usenames,dvipsnames]{xcolor} % Required for custom colors
 
 \definecolor{primary}{HTML}{2b2b2b} % The primary document color for content text
-\definecolor{headings}{HTML}{6A6A6A} % The color of the large sections
-\definecolor{subheadings}{HTML}{333333} % The color of subsections and places worked/studied
+\definecolor{headings}{HTML}{333333} % The color of the large sections
+\definecolor{subheadings}{HTML}{515050} % The color of subsections and places worked/studied
 \definecolor{date}{HTML}{666666} % The color used for the Last Updated text at the top right
 
 %----------------------------------------------------------------------------------------
@@ -27,6 +32,7 @@
 %----------------------------------------------------------------------------------------
 
 \usepackage{fontspec} % Required for specifying custom fonts in XeLaTeX
+\usepackage{fontawesome}
 
 \setmainfont[Color=primary, Path = fonts/lato/,BoldItalicFont=Lato-RegIta,BoldFont=Lato-Reg,ItalicFont=Lato-LigIta]{Lato-Lig} % The primary font for content text; defines bold, italic and bold-italic as well
 
@@ -50,7 +56,7 @@ Last Updated on \today % Last Updated text
 %----------------------------------------------------------------------------------------
 %	MAIN HEADING COMMAND
 %----------------------------------------------------------------------------------------
-
+\newfontfamily{\FA}{FontAwesome}
 \newcommand{\namesection}[5]{ % Defines the command for the main heading
 \centering{ % Center the name
 \fontsize{30pt}{50pt} % Font size
@@ -59,13 +65,13 @@ Last Updated on \today % Last Updated text
 \fontspec[Path = fonts/lato/]{Lato-Hai}\selectfont #2 % First name font
 } \\[5pt] % Whitespace between the name and contact information
 \centering{ % Center the contact information
-\color{headings}\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{13pt}\scshape\selectfont #3
+\color{headings}\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{13pt}\selectfont #3
 } \\[5pt]% Contact information font
 \centering{ % Center the name
-\color{headings}\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{09pt}{13pt}\selectfont #4
+\color{headings}\fontspec[Path = fonts/raleway/]{Raleway-Thin}\fontsize{09pt}{13pt}\selectfont #4
 }
-\noindent\makebox[\linewidth]{\color{headings}\rule{\paperwidth}{0.4pt}} % Horizontal rule
-\vspace{-5pt} % Reduce whitespace after the rule slightly
+\noindent\makebox[\linewidth]{\color{headings}\rule{\paperwidth}{0.4pt}} % Horizontal rule 
+\vspace{-8pt} % Reduce whitespace after the rule slightly
 }
 
 %----------------------------------------------------------------------------------------
@@ -76,16 +82,16 @@ Last Updated on \today % Last Updated text
 
 \titlespacing{\section}{0pt}{0pt}{0pt} % Removes the spacing around the main section titles
 \titlespacing{\subsection}{0pt}{0pt}{0pt} % Removes the spacing around the subsections
-\newcommand{\sectionspace}{\vspace{8pt}} % Defines a command to add a set amount of space after sections and subsections
+\newcommand{\sectionspace}{\vspace{6pt}} % Defines a command to add a set amount of space after sections and subsections
 
 \titleformat{\section}{ % Customize the large section titles
-\color{headings}\scshape\fontspec[Path = fonts/lato/]{Lato-Lig}\fontsize{16pt}{24pt}\selectfont \raggedright\uppercase}{}{0em}{}
+\color{headings}\fontspec[Path = fonts/lato/]{Lato-BolIta}\fontsize{13pt}{20pt}\selectfont \raggedright\bfseries\uppercase}{}{0em}{}
 
 \titleformat{\subsection}{ % Customize the subsections and places worked/studied titles
 \color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{10pt}{10pt}\selectfont\bfseries\uppercase}{}{0em}{}
 
 \newcommand{\runsubsection}[1]{ % Used for creating subsections where a description is required on the same line
-\color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase {#1} \normalfont}
+\color{subheadings}\fontspec[Path = fonts/lato/]{Lato-Bol}\fontsize{11pt}{12pt}\selectfont\bfseries\uppercase {#1}\normalfont}
 
 \newcommand{\descript}[1]{ % Used for describing the subsection either on the same line or underneath
 \color{subheadings}\raggedright\scshape\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{13pt}\selectfont {#1 \\} \normalfont}
